@@ -1,8 +1,8 @@
 {
   "APP_PORT": 3000,
-  "NEO4J_URI": "neo4j://localhost:7687",
+  "NEO4J_URI": "bolt://52.3.224.2:7687",
   "NEO4J_USERNAME": "neo4j",
-  "NEO4J_PASSWORD": "letmein",
+  "NEO4J_PASSWORD": "searchlight-injectors-dips",
   "JWT_SECRET": "secret",
   "SALT_ROUNDS": 10
 }

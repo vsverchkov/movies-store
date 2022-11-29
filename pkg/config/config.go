@@ -46,7 +46,17 @@ type Config struct {
  */
 // tag::initDriver[]
 func NewDriver(settings *Config) (neo4j.Driver, error) {
-	return nil, nil
+    driver, err := neo4j.NewDriver(settings.Uri, neo4j.BasicAuth(settings.Username, settings.Password, ""), func(config *neo4j.Config) {
+        config.MaxConnectionPoolSize = 10
+    })
+    if err != nil {
+        return nil, err
+    }
+    err = driver.VerifyConnectivity()
+    if err != nil {
+        return nil, err
+    }
+	return driver, nil
 }
 
 // end::initDriver[]
